@@ -21,6 +21,9 @@ public class Deck {
                 cards.add(new Card(rank, suit));
             }
         }
+    }
 
+    public int size() {
+        return cards.size();
     }
 }
