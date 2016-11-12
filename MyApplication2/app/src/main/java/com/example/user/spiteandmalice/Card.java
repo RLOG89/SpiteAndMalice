@@ -19,4 +19,7 @@ public class Card {
         return rank + " of " + suit;
     }
 
+    public Rank getRank() {
+        return rank;
+    }
 }
