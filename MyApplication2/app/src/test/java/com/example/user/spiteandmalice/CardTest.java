@@ -14,12 +14,17 @@ public class CardTest {
     Card card;
 
     @Before
-    public void before(){
+    public void before() {
         card = new Card(Rank.ACE, Suit.CLUBS);
     }
 
     @Test
-    public void canGetRank(){
+    public void canGetRank() {
         assertEquals(Rank.ACE, card.getRank());
+    }
+
+    @Test
+    public void canGetSuit() {
+        assertEquals(Suit.CLUBS, card.getSuit());
     }
 }
