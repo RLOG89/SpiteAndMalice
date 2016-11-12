@@ -17,11 +17,12 @@ public class DeckTest {
 
     @Before
     public void before() {
-        deck = new Deck(new ArrayList<Card>());
+        deck = new Deck(1);
     }
 
     @Test
     public void deckIsPopulated(){
         assertEquals(52, deck.size());
     }
+
 }
