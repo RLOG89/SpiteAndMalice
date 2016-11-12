@@ -5,4 +5,18 @@ package com.example.user.spiteandmalice;
  */
 
 public class Player {
+
+    private String name;
+    private Hand hand;
+    private Scoring score;
+
+    public Player(String name, Hand hand, Scoring score ) {
+        this.name = name;
+        this.hand = hand;
+        this.score = score;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
