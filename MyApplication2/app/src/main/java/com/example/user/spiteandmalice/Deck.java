@@ -8,22 +8,28 @@ import java.util.ArrayList;
 
 public class Deck {
 
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards = new ArrayList<Card>();
 
-    public Deck(ArrayList<Card> cards) {
-        this.cards = cards;
-        populate();
+    public Deck(int numberOfDecks) {
+        populate(numberOfDecks);
     }
 
-    private void populate() {
-        for (Suit suit : Suit.values()) {
-            for (Rank rank : Rank.values()) {
-                cards.add(new Card(rank, suit));
+    private void populate(int decks) {
+        int counter;
+        for (counter = 0; counter < decks; counter++){
+            for (Suit suit : Suit.values()) {
+                for (Rank rank : Rank.values()) {
+                    cards.add(new Card(rank, suit));
+                }
             }
         }
     }
 
     public int size() {
         return cards.size();
+    }
+
+    public ArrayList<Card> getDeck() {
+        return this.cards;
     }
 }
