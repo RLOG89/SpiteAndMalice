@@ -27,4 +27,9 @@ public class CardTest {
     public void canGetSuit() {
         assertEquals(Suit.CLUBS, card.getSuit());
     }
+
+    @Test
+    public void canOutputCardToString() {
+        assertEquals("ACE of CLUBS", card.toString());
+    }
 }
