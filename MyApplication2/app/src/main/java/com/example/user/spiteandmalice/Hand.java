@@ -8,15 +8,23 @@ import java.util.ArrayList;
 
 public class Hand {
 
-   private ArrayList<Card> cards;
+   private ArrayList<Card> hand;
 
     public Hand() {
-        this.cards = new ArrayList<Card>();
+        this.hand = new ArrayList<Card>();
     }
 
     public void addCard(Card card) {
-        cards.add(card);
+        hand.add(card);
     }
 
-    
+    public int addStartingHand() {
+        int cardsInHand = 0;
+            for (Card card : hand) {
+                if (hand.size() < 5) {
+                    cardsInHand ++;
+                }
+            }
+        return cardsInHand;
+    }
 }
