@@ -27,4 +27,8 @@ public class Hand {
             }
         return cardsInHand;
     }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 }
