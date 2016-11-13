@@ -15,7 +15,7 @@ public class PlayerTest {
 
     @Before
     public void before(){
-        player = new Player("Ross", new Hand(), new Scoring());
+        player = new Player("Ross", new Hand(), 0);
     }
 
     @Test
