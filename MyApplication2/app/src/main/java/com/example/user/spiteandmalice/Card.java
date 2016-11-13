@@ -26,4 +26,10 @@ public class Card {
     public Suit getSuit() {
         return suit;
     }
+
+        // may need to edit later to assign king to next value required //
+    public int getValue() {
+       int value = rank.ordinal() + 1;
+        return value;
+    }
 }

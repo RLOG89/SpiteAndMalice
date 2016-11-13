@@ -32,4 +32,9 @@ public class CardTest {
     public void canOutputCardToString() {
         assertEquals("ACE of CLUBS", card.toString());
     }
+
+    @Test
+    public void canGetValue() {
+        assertEquals(1, card.getValue());
+    }
 }
