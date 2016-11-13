@@ -18,16 +18,6 @@ public class Hand {
         hand.add(card);
     }
 
-    public int addStartingHand() {
-        int cardsInHand = 0;
-            for (Card card : hand) {
-                if (hand.size() < 5) {
-                    cardsInHand ++;
-                }
-            }
-        return cardsInHand;
-    }
-
     public ArrayList<Card> getHand() {
         return hand;
     }
