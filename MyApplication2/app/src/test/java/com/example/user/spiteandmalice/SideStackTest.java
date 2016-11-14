@@ -11,6 +11,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class SideStackTest {
 
+    CentreStack centreStack;
     SideStack sideStack;
     Card card;
     Card card2;
@@ -23,16 +24,23 @@ public class SideStackTest {
 
     @Test
     public void canAddCardToSideStack() {
-        sideStack.AddCardToSideStack(1, card);
+        assertEquals(0, sideStack.getSideStack(1).size());
+        sideStack.addCardToSideStack(1, card);
         assertEquals(1, sideStack.getSideStack(1).size());
     }
 
     @Test
     public void newCardGoesToPosition1() {
         card2 = new Card(Rank.EIGHT, Suit.DIAMONDS);
-        sideStack.AddCardToSideStack(2, card);
-        sideStack.AddCardToSideStack(2, card2);
+        sideStack.addCardToSideStack(2, card);
+        sideStack.addCardToSideStack(2, card2);
         assertEquals(2, sideStack.getSideStack(2).size());
         assertEquals("EIGHT of DIAMONDS", sideStack.getSideStack(2).get(0).toString());
+    }
+
+    @Test
+    public void canRemoveCard() {
+        sideStack.addCardToSideStack(3, card);
+        assertEquals(card, sideStack.removeCardFromSideStack(3));
     }
 }
