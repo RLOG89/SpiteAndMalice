@@ -19,6 +19,10 @@ public class PayOffPile {
     }
 
     public Card removeCard() {
+        if (cards.isEmpty()) {
+            return null;
+        }
         return cards.remove(cards.size() - 1);
     }
 }
+
