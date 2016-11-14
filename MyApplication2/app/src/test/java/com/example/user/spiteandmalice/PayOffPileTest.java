@@ -3,6 +3,8 @@ package com.example.user.spiteandmalice;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -11,18 +13,27 @@ import static junit.framework.Assert.assertEquals;
 
 public class PayOffPileTest {
 
+    ArrayList<Card> cards;
+    Card card1, card2, card3;
     PayOffPile payOffPile;
-    Card card;
 
     @Before
     public void before() {
-        payOffPile = new PayOffPile();
-        card = new Card(Rank.JACK, Suit.SPADES);
+        cards = new ArrayList<Card>();
+        card1 = new Card(Rank.JACK, Suit.SPADES);
+        card2 = new Card(Rank.FOUR, Suit.SPADES);
+        card3 = new Card(Rank.TWO, Suit.CLUBS);
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        payOffPile = new PayOffPile(cards);
+
     }
 
     @Test
-    public void canAddCardToPayOffPile() {
-        payOffPile.addCard(card);
-        assertEquals(1, payOffPile.getPayPile().size());
+    public void canRemoveTopCard() {
+        assertEquals(3, payOffPile.getPayPile().size());
+        Card dummyCard = payOffPile.removeCard();
+        assertEquals(Rank.TWO, dummyCard.getRank());
     }
 }

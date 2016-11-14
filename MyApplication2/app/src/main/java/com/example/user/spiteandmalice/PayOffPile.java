@@ -8,16 +8,17 @@ import java.util.ArrayList;
 
 public class PayOffPile {
 
-    private ArrayList<Card> payPile = new ArrayList<>(20);
+    private ArrayList<Card> cards;
 
-    public PayOffPile(){
+    public PayOffPile(ArrayList<Card> cards) {
+        this.cards = cards;
     }
 
     public ArrayList<Card> getPayPile() {
-        return payPile;
+        return cards;
     }
 
-    public void addCard(Card card) {
-        payPile.add(card);
+    public Card removeCard() {
+        return cards.remove(cards.size() - 1);
     }
 }
