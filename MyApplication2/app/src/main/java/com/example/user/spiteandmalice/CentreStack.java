@@ -19,20 +19,17 @@ public class CentreStack {
 
     }
 
-    public ArrayList<Card> getStack(int stackNumber) {
+    public ArrayList<Card> getStack(int centreStackNumber) {
+       if (centreStackNumber == 1)
         return Stack1;
-    }
-
-    public ArrayList<Card> getStack2() {
-        return Stack2;
-    }
-
-    public ArrayList<Card> getStack3() {
-        return Stack3;
-    }
-
-    public ArrayList<Card> getStack4() {
-        return Stack4;
+        else if (centreStackNumber == 2)
+           return Stack2;
+        else if (centreStackNumber == 3)
+           return Stack3;
+        else if (centreStackNumber == 4)
+           return Stack4;
+        // add throw exception here if any other number entered //
+        return null;
     }
 
     public void stack1AddCardFromSide(Card card) {
