@@ -24,7 +24,7 @@ public class SideStackTest {
     @Test
     public void canAddCardToSideStack() {
         sideStack.AddCardToSideStack1(card);
-        assertEquals(1, sideStack.getSideStack1().size());
+        assertEquals(1, sideStack.getSideStack(1).size());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class SideStackTest {
         card2 = new Card(Rank.EIGHT, Suit.DIAMONDS);
         sideStack.AddCardToSideStack2(card);
         sideStack.AddCardToSideStack2(card2);
-        assertEquals(2, sideStack.getSideStack2().size());
-        assertEquals("EIGHT of DIAMONDS", sideStack.getSideStack2().get(0).toString());
+        assertEquals(2, sideStack.getSideStack(2).size());
+        assertEquals("EIGHT of DIAMONDS", sideStack.getSideStack(2).get(0).toString());
     }
 }
