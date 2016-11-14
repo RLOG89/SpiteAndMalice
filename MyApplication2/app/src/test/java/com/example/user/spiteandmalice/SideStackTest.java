@@ -23,15 +23,15 @@ public class SideStackTest {
 
     @Test
     public void canAddCardToSideStack() {
-        sideStack.AddCardToSideStack1(card);
+        sideStack.AddCardToSideStack(1, card);
         assertEquals(1, sideStack.getSideStack(1).size());
     }
 
     @Test
     public void newCardGoesToPosition1() {
         card2 = new Card(Rank.EIGHT, Suit.DIAMONDS);
-        sideStack.AddCardToSideStack2(card);
-        sideStack.AddCardToSideStack2(card2);
+        sideStack.AddCardToSideStack(2, card);
+        sideStack.AddCardToSideStack(2, card2);
         assertEquals(2, sideStack.getSideStack(2).size());
         assertEquals("EIGHT of DIAMONDS", sideStack.getSideStack(2).get(0).toString());
     }

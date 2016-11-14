@@ -23,34 +23,23 @@ public class SideStack {
     }
 
     public ArrayList<Card> getSideStack(int sideStackNumber) {
-        if (sideStackNumber == 1)
-            return SideStack1;
-        else if (sideStackNumber == 2)
-            return SideStack2;
-        else if (sideStackNumber == 3)
-            return SideStack3;
-        else if (sideStackNumber == 4)
-            return SideStack4;
+        if (sideStackNumber == 1){return SideStack1;}
+        else if (sideStackNumber == 2){return SideStack2;}
+        else if (sideStackNumber == 3){return SideStack3;}
+        else if (sideStackNumber == 4){return SideStack4;}
         // add throw exception here if any other number entered //
         return null;
 
     }
 
-    public void AddCardToSideStack1(Card card) {
-        SideStack1.add(0, card);
+    public void AddCardToSideStack(int sideStackNumber, Card card) {
+        if (sideStackNumber == 1){SideStack1.add(0, card);}
+        else if (sideStackNumber ==2){SideStack2.add(0, card);}
+        else if (sideStackNumber ==3){SideStack2.add(0, card);}
+        else if (sideStackNumber ==4){SideStack2.add(0, card);}
+        // add throw exception here if any other number entered //
     }
 
-    public void AddCardToSideStack2(Card card) {
-        SideStack2.add(0, card);
-    }
-
-    public void AddCardToSideStack3(Card card) {
-        SideStack3.add(0, card);
-    }
-
-    public void AddCardToSideStack4(Card card) {
-        SideStack4.add(0, card);
-    }
 
 //    public void RemoveCardFromSideStack1(Card card) {
 //        CentreStack.s.add(0);
