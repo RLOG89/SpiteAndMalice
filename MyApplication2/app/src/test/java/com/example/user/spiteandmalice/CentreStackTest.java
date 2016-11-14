@@ -26,4 +26,9 @@ public class CentreStackTest {
         centreStack.addCard(1, card);
         assertEquals(1, centreStack.getStack(1).size());
     }
+
+    @Test
+    public void centreStackStartsEmpty() {
+        assertEquals(0, centreStack.getStack(1).size());
+    }
 }
