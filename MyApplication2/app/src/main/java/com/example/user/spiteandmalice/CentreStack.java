@@ -10,41 +10,37 @@ import java.util.ArrayList;
 
 public class CentreStack {
 
-    private ArrayList<Card> Stack1 = new ArrayList<>(13);
-    private ArrayList<Card> Stack2 = new ArrayList<>(13);
-    private ArrayList<Card> Stack3 = new ArrayList<>(13);
-    private ArrayList<Card> Stack4 = new ArrayList<>(13);
+    // put these in an array later //
+    private ArrayList<Card> Stack1 = new ArrayList<>(12);
+    private ArrayList<Card> Stack2 = new ArrayList<>(12);
+    private ArrayList<Card> Stack3 = new ArrayList<>(12);
+    private ArrayList<Card> Stack4 = new ArrayList<>(12);
 
     public CentreStack() {
-
     }
 
     public ArrayList<Card> getStack(int centreStackNumber) {
-       if (centreStackNumber == 1)
-        return Stack1;
-        else if (centreStackNumber == 2)
-           return Stack2;
-        else if (centreStackNumber == 3)
-           return Stack3;
-        else if (centreStackNumber == 4)
-           return Stack4;
+        if (centreStackNumber == 1){return Stack1;}
+        if (centreStackNumber == 2){return Stack2;}
+        if (centreStackNumber == 3){return Stack3;}
+        if (centreStackNumber == 4){return Stack4;}
         // add throw exception here if any other number entered //
         return null;
     }
 
-    public void stack1AddCardFromSide(Card card) {
-        Stack1.add(card);
+    public void addCard(int centreStackNumber, Card card) {
+        if (centreStackNumber == 1){Stack1.add(card);}
+        if (centreStackNumber == 2){Stack2.add(card);}
+        if (centreStackNumber == 3){Stack3.add(card);}
+        if (centreStackNumber == 4){Stack4.add(card);}
+        // add throw exception here if any other number entered //
+        else;
     }
 
-    public void stack2AddCardFromSide(Card card) {
-        Stack1.add(card);
-    }
-
-    public void stack3AddCardFromSide(Card card) {
-        Stack1.add(card);
-    }
-
-    public void stack4AddCardFromSide(Card card) {
-        Stack1.add(card);
+    public void resetStack(int centreStackNumber) {
+        if (centreStackNumber == 1){Stack1.clear();}
+        if (centreStackNumber == 2){Stack2.clear();}
+        if (centreStackNumber == 3){Stack3.clear();}
+        if (centreStackNumber == 4){Stack4.clear();}
     }
 }
