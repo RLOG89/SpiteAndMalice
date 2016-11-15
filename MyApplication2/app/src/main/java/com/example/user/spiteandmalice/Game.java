@@ -26,7 +26,11 @@ public class Game {
         }
     }
 
-//    dealCardsToPlayer() {
+    public ArrayList<Card> getSpiteAndMaliceDeck() {
+        return spiteAndMaliceDeck;
+    }
+
+    //    dealCardsToPlayer() {
 //        for (Player player : players)
 //
 //    }
