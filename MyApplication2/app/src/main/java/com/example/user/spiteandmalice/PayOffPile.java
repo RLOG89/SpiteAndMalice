@@ -24,5 +24,9 @@ public class PayOffPile {
         }
         return cards.remove(cards.size() - 1);
     }
+
+    public void addCard(Card card) {
+        cards.add(card);
+    }
 }
 
