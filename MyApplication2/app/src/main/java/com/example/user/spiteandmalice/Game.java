@@ -30,10 +30,18 @@ public class Game {
         return spiteAndMaliceDeck;
     }
 
-    //    dealCardsToPlayer() {
-//        for (Player player : players)
-//
-//    }
+    public void addPlayer(Player player){
+        players.add(player);
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void dealCardsToPlayer() {
+        for (Player player : players)
+
+    }
 
 
 
