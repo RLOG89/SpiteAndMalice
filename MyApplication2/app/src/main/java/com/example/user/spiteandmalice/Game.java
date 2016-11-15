@@ -12,10 +12,8 @@ public class Game {
     private ArrayList<Card> spiteAndMaliceDeck = new ArrayList<>();
     private ArrayList<Player> players = new ArrayList<>();
     private Deck deck;
-    private Player player;
     private int maxNumCardsInHand;
     private int maxNumCardsInPile;
-    private int last = (spiteAndMaliceDeck.size() - 1);
 
     public Game (CentreStack centreStack, Deck deck, ArrayList<Player> players, int maxNumCardsInHand, int maxNumCardsInPile) {
         this.maxNumCardsInHand = maxNumCardsInHand;
@@ -45,19 +43,36 @@ public class Game {
         return players;
     }
 
+    public boolean checkPlayerHandSizeValid(Player player) {
+        boolean handFull = false;
+        if (player.getHandSize() < maxNumCardsInHand) {
+            handFull = true;
+        }
+        return handFull;
+    }
+
+    public boolean checkPlayerPileSizeValid(Player player) {
+        boolean pileFull = false;
+        if (player.getPileSize() < maxNumCardsInPile) {
+            pileFull = true;
+        }
+        return pileFull;
+    }
+
     public void dealCardsToPlayerHand() {
-        int currentCards = player.getHandSize();
-        for (Player player : players);
-            while (currentCards < this.maxNumCardsInHand)
-                player.getHand().addCard(spiteAndMaliceDeck.remove(last));
+        for (Player player : players) {
+            while (checkPlayerHandSizeValid(player)) {
+                player.getHand().addCard(spiteAndMaliceDeck.remove(0));
+            }
+        }
     }
 
     public void dealCardsToPlayerPile() {
-        int currentPile = player.getPileSize();
-        for (Player player : players);
-            while (currentPile < this.maxNumCardsInPile)
-                player.getPayOffPile().addCard(spiteAndMaliceDeck.remove(last));
-
+        for (Player player : players) {
+            while (checkPlayerPileSizeValid(player)) {
+                player.getPayOffPile().addCard(spiteAndMaliceDeck.remove(0));
+            }
+        }
     }
 
     public void setup() {
