@@ -42,4 +42,10 @@ public class GameTest {
         assertEquals(5, ross.getHandSize());
         assertEquals(5, bobby.getHandSize());
     }
+
+    @Test
+    public void playerStartsWithTwentyCardsInPile() {
+        assertEquals(20, ross.getPileSize());
+        assertEquals(20, bobby.getPileSize());
+    }
 }
