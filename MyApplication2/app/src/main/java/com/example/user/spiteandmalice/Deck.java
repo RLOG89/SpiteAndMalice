@@ -1,6 +1,7 @@
 package com.example.user.spiteandmalice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by user on 12/11/2016.
@@ -12,11 +13,11 @@ public class Deck {
 
     public Deck(int numberOfDecks) {
         populate(numberOfDecks);
+        shuffle();
     }
 
     private void populate(int decks) {
-        int counter;
-        for (counter = 0; counter < decks; counter++){
+        for (int counter = 0; counter < decks; counter++){
             for (Suit suit : Suit.values()) {
                 for (Rank rank : Rank.values()) {
                     cards.add(new Card(rank, suit));
@@ -31,5 +32,10 @@ public class Deck {
 
     public ArrayList<Card> getDeck() {
         return this.cards;
+    }
+
+    //choose another shuffle method later//
+    private void shuffle(){
+        Collections.shuffle(cards);
     }
 }
