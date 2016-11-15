@@ -26,7 +26,7 @@ public class PayOffPileTest {
         cards.add(card1);
         cards.add(card2);
         cards.add(card3);
-        payOffPile = new PayOffPile(cards);
+        payOffPile = new PayOffPile();
 
     }
 

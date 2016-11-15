@@ -10,8 +10,8 @@ public class PayOffPile {
 
     private ArrayList<Card> cards;
 
-    public PayOffPile(ArrayList<Card> cards) {
-        this.cards = cards;
+    public PayOffPile() {
+        this.cards = new ArrayList<Card>();
     }
 
     public ArrayList<Card> getPayPile() {
