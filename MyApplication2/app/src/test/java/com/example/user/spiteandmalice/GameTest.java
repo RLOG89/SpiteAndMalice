@@ -19,7 +19,8 @@ public class GameTest {
     Game game;
     Player ross = new Player("Ross", new Hand(), new PayOffPile());
     Player bobby = new Player("Bobby", new Hand(), new PayOffPile());
-    Card card;
+    Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
+    Card card2 = new Card(Rank.ACE, Suit.DIAMONDS);
 
     @Before
     public void before() {
@@ -57,5 +58,11 @@ public class GameTest {
         assertEquals(4, ross.getHandSize());
         game.dealCardsToPlayerHand();
         assertEquals(5, ross.getHandSize());
+    }
+
+    @Test
+    public void centreStackPlayCheckWorks() {
+        assertEquals(false, game.centreStackPlayCheck(card1));
+        assertEquals(true, game.centreStackPlayCheck(card2));
     }
 }
