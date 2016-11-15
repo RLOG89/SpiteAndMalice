@@ -3,6 +3,7 @@ package com.example.user.spiteandmalice;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
@@ -13,13 +14,17 @@ import static junit.framework.Assert.assertEquals;
 
 public class GameTest {
 
+    ArrayList<Player> players = new ArrayList<>();
+    ArrayList<Card> cards = new ArrayList<>();
     Game game;
-    Player ross;
-    Player bobby;
+    Player ross = new Player("Ross", new Hand(), new PayOffPile(cards));
+    Player bobby = new Player("Bobby", new Hand(), new PayOffPile(cards));
 
     @Before
     public void before() {
-        game = new Game(new CentreStack(), new Deck(3), new ArrayList<Player>());
+        players.add(ross);
+        players.add(bobby);
+        game = new Game(new CentreStack(), new Deck(3), players, 5, 20);
     }
 
     @Test
@@ -29,8 +34,12 @@ public class GameTest {
 
     @Test
     public void canAddPlayers() {
-        game.addPlayer(ross);
-        game.addPlayer(bobby);
         assertEquals(2, game.getPlayers().size());
+    }
+
+    @Test
+    public void playerStartsWithFiveCardsInHand() {
+        assertEquals(5, ross.getHandSize());
+        assertEquals(5, bobby.getHandSize());
     }
 }
