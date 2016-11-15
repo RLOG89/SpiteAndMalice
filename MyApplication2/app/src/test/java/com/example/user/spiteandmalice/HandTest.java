@@ -10,7 +10,7 @@ import static junit.framework.Assert.assertEquals;
  */
 
 public class HandTest {
-    Hand hand;
+    Hand cards;
     Card card1;
     Card card2;
     Card card3;
@@ -19,7 +19,7 @@ public class HandTest {
 
     @Before
     public void before() {
-        hand = new Hand();
+        cards = new Hand();
         card1 = new Card(Rank.FIVE, Suit.CLUBS);
         card2 = new Card(Rank.TEN, Suit.CLUBS);
         card3 = new Card(Rank.EIGHT, Suit.HEARTS);
@@ -29,9 +29,15 @@ public class HandTest {
 
     @Test
     public void canAddCard() {
-        hand.addCard(card1);
-        assertEquals(1, hand.getHand().size());
+        cards.addCard(card1);
+        assertEquals(Suit.CLUBS, cards.getHand().get(0).getSuit());
     }
 
-    
+    @Test
+    public void canGetSize() {
+        cards.addCard(card1);
+        cards.addCard(card2);
+        assertEquals(2, cards.getHand().size());
+    }
+
 }
