@@ -28,4 +28,12 @@ public class Player {
         return currentPoints;
     }
 
+    public Hand getHand() {
+        return hand;
+    }
+
+    public int getHandSize() {
+        return hand.getHand().size();
+    }
+
 }
