@@ -17,8 +17,9 @@ public class GameTest {
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<Card> cards = new ArrayList<>();
     Game game;
-    Player ross = new Player("Ross", new Hand(), new PayOffPile(cards));
-    Player bobby = new Player("Bobby", new Hand(), new PayOffPile(cards));
+    Player ross = new Player("Ross", new Hand(), new PayOffPile());
+    Player bobby = new Player("Bobby", new Hand(), new PayOffPile());
+    Card card;
 
     @Before
     public void before() {
@@ -27,9 +28,10 @@ public class GameTest {
         game = new Game(new CentreStack(), new Deck(3), players, 5, 20);
     }
 
+    // 3 decks (156) - 2 piles (40) & 2 hands (10)
     @Test
     public void spiteAndMaliceDeckHasCorrectNumberOfCards() {
-        assertEquals(156, (game.getSpiteAndMaliceDeck().size()));
+        assertEquals(106, (game.getSpiteAndMaliceDeck().size()));
     }
 
     @Test
@@ -47,5 +49,13 @@ public class GameTest {
     public void playerStartsWithTwentyCardsInPile() {
         assertEquals(20, ross.getPileSize());
         assertEquals(20, bobby.getPileSize());
+    }
+
+    @Test
+    public void playerCannotHaveMoreThanFiveCardsInHand() {
+        ross.getHand().removeCard();
+        assertEquals(4, ross.getHandSize());
+        game.dealCardsToPlayerHand();
+        assertEquals(5, ross.getHandSize());
     }
 }
