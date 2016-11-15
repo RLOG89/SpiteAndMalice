@@ -32,6 +32,10 @@ public class Player {
         return hand;
     }
 
+    public PayOffPile getPayOffPile() {
+        return payOffPile;
+    }
+
     public int getHandSize() {
         return hand.getHand().size();
     }
