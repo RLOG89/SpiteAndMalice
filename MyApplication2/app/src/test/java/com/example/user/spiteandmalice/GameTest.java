@@ -54,15 +54,21 @@ public class GameTest {
 
     @Test
     public void playerCannotHaveMoreThanFiveCardsInHand() {
-        ross.getHand().removeCard();
-        assertEquals(4, ross.getHandSize());
         game.dealCardsToPlayerHand();
         assertEquals(5, ross.getHandSize());
     }
 
     @Test
     public void centreStackPlayCheckWorks() {
-        assertEquals(false, game.centreStackPlayCheck(card1));
-        assertEquals(true, game.centreStackPlayCheck(card2));
+        assertEquals(false, game.centreStackValidMoveCheck(1, card1));
+        assertEquals(true, game.centreStackValidMoveCheck(1, card2));
+    }
+
+    @Test
+    public void canAddAllowedCardToCentreStack() {
+        ross.getHand().removeCardAtIndex();
+        ross.getHand().addCard(card2);
+        game.addAllowedCardToCentreStack(1, card2, ross);
+        assertEquals(1,game.getCentreStack().getStack(1).size() );
     }
 }
