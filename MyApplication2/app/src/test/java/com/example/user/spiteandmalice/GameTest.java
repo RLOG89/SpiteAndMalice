@@ -1,7 +1,9 @@
 package com.example.user.spiteandmalice;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class GameTest {
     Player bobby = new Player("Bobby", new Hand(), new PayOffPile());
     Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
     Card card2 = new Card(Rank.ACE, Suit.DIAMONDS);
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void before() {
@@ -92,5 +97,27 @@ public class GameTest {
         PayOffPile pile = ross.getPayOffPile();
         for (int i = 0; i == 20; i-- ) {pile.removeCard();}
         assertEquals(true, game.playerHasCardInPayOffPile(ross));
+    }
+
+    @Test
+    public void cannotScoreWhileGameInProgress() throws Exception {
+        assertEquals(false, game.isGameOver());
+        exception.expect(Exception.class);
+        assertEquals(null, game.getScoreForPlayer(ross));
+    }
+
+    @Test
+    public void correctScore1() throws Exception {
+        // Remove all PayOffPile from ross
+        for (int i = 0; i < 20; i++) ross.getPayOffPile().removeCard();
+        assertEquals(25, game.getScoreForPlayer(ross));
+        assertEquals(0, game.getScoreForPlayer(bobby));
+    }
+
+    @Test
+    public void correctScore2() throws Exception {
+        for (int i = 0; i < 10; i++) bobby.getPayOffPile().removeCard();
+        for (int i = 0; i < 20; i++) ross.getPayOffPile().removeCard();
+        assertEquals(15, game.getScoreForPlayer(ross));
     }
 }

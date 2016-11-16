@@ -130,12 +130,16 @@ public class Game {
         return false;
     }
 
-    public int getScoreForPlayer(Player player) {
-        for (player : players) {
-        if (playerHasCardInPayOffPile(player) == true) {
-
+    public int getScoreForPlayer(Player player) throws Exception {
+        if (isGameOver() == false) throw new Exception("The game has not ended");
+        if (player.getPileSize() != 0) return 0;
+        int points = 5;
+        for (Player tempPlayer : players) {
+            if (tempPlayer != player) {
+                points += tempPlayer.getPileSize();
             }
         }
+        return points;
     }
 
 }
