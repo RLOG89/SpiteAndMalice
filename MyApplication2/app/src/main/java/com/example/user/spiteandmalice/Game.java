@@ -121,4 +121,21 @@ public class Game {
         return true;
     }
 
+    public boolean isGameOver() {
+        for (Player player : players) {
+            if (playerHasCardInPayOffPile(player) == false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getScoreForPlayer(Player player) {
+        for (player : players) {
+        if (playerHasCardInPayOffPile(player) == true) {
+
+            }
+        }
+    }
+
 }
