@@ -90,7 +90,6 @@ public class Game {
         }
         else return false;
     }
-        // loop through players hand to find card //
 
     public boolean playerHasCard(Player player, Card card) {
         for (int i = 0; i < player.getHand().cards.size(); i++) {
@@ -101,9 +100,20 @@ public class Game {
         return false;
     }
 
-    /* for each card check if value is +1 of centreStack.size if yes play if no do nothing
-    add check for if null move on so doesn't crash
-     */
+    public void moveCard(Card card, Hand hand, int stack) {
+        hand.removeCard(card);
+        centreStack.getStack(stack).add(card);
+    }
+
+    public void moveCard(Card card, PayOffPile payOffPile, int stack) {
+        payOffPile.removeCard();
+        centreStack.getStack(stack).add(card);
+    }
+
+    public void moveCard(Card card, SideStack sideStack, int stack) {
+        sideStack.removeCard(stack);
+        centreStack.getStack(stack).add(card);
+    }
 
     public void moveCardFromHandToCentre(int stack, Card card, Player player) {
         if (!playerHasCard(player, card)){return ;}
