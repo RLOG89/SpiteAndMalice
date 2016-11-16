@@ -6,11 +6,6 @@ import java.util.ArrayList;
  * Created by user on 12/11/2016.
  */
 
-/*
-4 empty ArrayLists.  Newly added cards should go to index(0)
-Cards must be removed from position 0 only, and added to CentreStack
- */
-
 public class SideStack {
 
     private ArrayList<ArrayList<Card>> sideStacks = new ArrayList<ArrayList<Card>>();
@@ -28,7 +23,7 @@ public class SideStack {
         }
 
     public void addCardToSideStack(int sideStackNumber, Card card) {
-        sideStacks.get(sideStackNumber).add(card);
+        sideStacks.get(sideStackNumber).add(0, card);
     }
 
     public Card removeCardFromSideStack(int sideStackNumber) {
