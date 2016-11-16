@@ -18,15 +18,15 @@ public class SideStack {
         }
     }
 
-    public ArrayList<Card> getSideStack(int sideStackNumber) {
+    public ArrayList<Card> getStack(int sideStackNumber) {
             return sideStacks.get(sideStackNumber);
         }
 
-    public void addCardToSideStack(int sideStackNumber, Card card) {
+    public void addCard(int sideStackNumber, Card card) {
         sideStacks.get(sideStackNumber).add(0, card);
     }
 
-    public Card removeCardFromSideStack(int sideStackNumber) {
+    public Card removeCard(int sideStackNumber) {
         return sideStacks.get(sideStackNumber).remove(0);
     }
 
