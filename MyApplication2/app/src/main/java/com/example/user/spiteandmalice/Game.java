@@ -101,16 +101,22 @@ public class Game {
     }
 
     public void moveCard(Card card, Hand hand, int stack) {
+        if (!hand.getHand().contains(card)){return ;}
+        if (!centreStackValidMoveCheck(stack, card)) return;
         hand.removeCard(card);
         centreStack.getStack(stack).add(card);
     }
 
     public void moveCard(Card card, PayOffPile payOffPile, int stack) {
+        if (!payOffPile.getPayPile().contains(card)){return ;}
+        if (!centreStackValidMoveCheck(stack, card)) return;
         payOffPile.removeCard();
         centreStack.getStack(stack).add(card);
     }
 
     public void moveCard(Card card, SideStack sideStack, int stack) {
+        if (!sideStack.contains(stack, card)){return ;}
+        if (!centreStackValidMoveCheck(stack, card)) return;
         sideStack.removeCard(stack);
         centreStack.getStack(stack).add(card);
     }

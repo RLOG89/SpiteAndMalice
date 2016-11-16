@@ -105,25 +105,25 @@ public class GameTest {
     @Test
     public void canMoveCardFromHand() {
         ross.getHand().removeCardAtIndex();
-        ross.getHand().addCard(card1);
-        game.moveCard(card1, ross.getHand(), 0);
+        ross.getHand().addCard(card2);
+        game.moveCard(card2, ross.getHand(), 0);
         assertEquals(1, game.getCentreStack().getStack(0).size());
-        assertFalse(ross.getHand().cards.contains(card1));
+        assertFalse(ross.getHand().cards.contains(card2));
     }
 
     @Test
     public void canMoveCardFromPayOffPile() {
         ross.getPayOffPile().removeCard();
-        ross.getPayOffPile().addCard(card1);
-        game.moveCard(card1, ross.getPayOffPile(), 1);
+        ross.getPayOffPile().addCard(card2);
+        game.moveCard(card2, ross.getPayOffPile(), 1);
         assertEquals(1, game.getCentreStack().getStack(1).size());
-        assertNotSame(card1, ross.getPayOffPile().getPayPile().get(0));
+        assertNotSame(card2, ross.getPayOffPile().getPayPile().get(0));
     }
 
     @Test
     public void canMoveCardFromSideStack() {
-        ross.getSideStack().addCard(2, card1);
-        game.moveCard(card1, ross.getSideStack(), 2);
+        ross.getSideStack().addCard(2, card2);
+        game.moveCard(card2, ross.getSideStack(), 2);
         assertEquals(1, game.getCentreStack().getStack(2).size());
         assertEquals(0, ross.getSideStack().getStack(2).size());
     }
