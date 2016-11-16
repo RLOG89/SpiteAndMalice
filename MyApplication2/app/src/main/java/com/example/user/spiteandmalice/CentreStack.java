@@ -3,6 +3,9 @@ package com.example.user.spiteandmalice;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import static com.example.user.spiteandmalice.Rank.ACE;
+import static com.example.user.spiteandmalice.Rank.KING;
+
 /**
  * Created by user on 12/11/2016.
  */
@@ -24,9 +27,15 @@ public class CentreStack {
     }
 
     public void addCard(int centreStackNumber, Card card) {
-        centreStacks.get(centreStackNumber).add(card);
+        if (getStack(centreStackNumber).size() == 0 && !card.getRank().equals(ACE)) return;
+        if (card.getRank().equals(KING)) {
+            centreStacks.get(centreStackNumber).add(card);
+            return;
+        }
+        if (card.getValue() == getStack(centreStackNumber).size() + 1) {
+            centreStacks.get(centreStackNumber).add(card);
+        }
     }
-
 
     public void resetStack(int centreStackNumber) {
         centreStacks.get(centreStackNumber).clear();
