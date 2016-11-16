@@ -22,8 +22,8 @@ public class GameTest {
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<Card> cards = new ArrayList<>();
     Game game;
-    Player ross = new Player("Ross", new Hand(), new PayOffPile());
-    Player bobby = new Player("Bobby", new Hand(), new PayOffPile());
+    Player ross = new Player("Ross", new Hand(), new PayOffPile(), new SideStack());
+    Player bobby = new Player("Bobby", new Hand(), new PayOffPile(), new SideStack());
     Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
     Card card2 = new Card(Rank.ACE, Suit.DIAMONDS);
 
@@ -118,6 +118,14 @@ public class GameTest {
         game.moveCard(card1, ross.getPayOffPile(), 1);
         assertEquals(1, game.getCentreStack().getStack(1).size());
         assertNotSame(card1, ross.getPayOffPile().getPayPile().get(0));
+    }
+
+    @Test
+    public void canMoveCardFromSideStack() {
+        ross.getSideStack().addCard(2, card1);
+        game.moveCard(card1, ross.getSideStack(), 2);
+        assertEquals(1, game.getCentreStack().getStack(2).size());
+        assertEquals(0, ross.getSideStack().getStack(2).size());
     }
 
     @Test
