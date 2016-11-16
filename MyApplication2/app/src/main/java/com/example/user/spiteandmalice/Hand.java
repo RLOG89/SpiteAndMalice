@@ -8,17 +8,42 @@ import java.util.ArrayList;
 
 public class Hand {
 
-   private ArrayList<Card> hand;
+    public ArrayList<Card> cards;
 
     public Hand() {
-        this.hand = new ArrayList<Card>();
+        this.cards = new ArrayList<Card>();
     }
 
     public void addCard(Card card) {
-        hand.add(card);
+        cards.add(card);
     }
 
     public ArrayList<Card> getHand() {
-        return hand;
+        return cards;
     }
+
+    // predicate class .removeif? iterator? //
+
+//    public Card removeCard(Card card) {
+//        if (!(cards.size() == 0)) {
+//            cards.removeIf (s -> !s.contains(card));
+//        }
+//    }
+
+    public Card removeCard(Card card) {
+        Card returnCard = null;
+
+        if (!(cards.size() == 0)) {
+            for (int i = 0; i < this.cards.size(); i++) {
+                if (this.cards.get(i).getValue() == card.getValue()) {
+                    returnCard = this.cards.remove(i);
+                }
+            }
+        }
+        return returnCard;
+    }
+    
 }
+
+
+
