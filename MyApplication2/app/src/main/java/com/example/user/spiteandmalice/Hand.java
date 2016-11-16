@@ -42,7 +42,11 @@ public class Hand {
         }
         return returnCard;
     }
-    
+
+    public void removeCardAtIndex(){
+        this.cards.remove(0);
+    }
+
 }
 
 
