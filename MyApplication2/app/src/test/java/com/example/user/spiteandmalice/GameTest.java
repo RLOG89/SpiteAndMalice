@@ -9,6 +9,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertNotSame;
+import static junit.framework.Assert.assertNull;
 
 /**
  * Created by user on 15/11/2016.
@@ -97,6 +100,15 @@ public class GameTest {
         PayOffPile pile = ross.getPayOffPile();
         for (int i = 0; i == 20; i-- ) {pile.removeCard();}
         assertEquals(true, game.playerHasCardInPayOffPile(ross));
+    }
+
+    @Test
+    public void canMoveCardFromHand() {
+        ross.getHand().removeCardAtIndex();
+        ross.getHand().addCard(card1);
+        game.moveCard(card1, ross.getHand(), 0);
+        assertEquals(1, game.getCentreStack().getStack(0).size());
+        assertFalse(ross.getHand().cards.contains(card1));
     }
 
     @Test
