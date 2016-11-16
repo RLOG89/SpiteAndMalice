@@ -80,24 +80,9 @@ public class Game {
         dealCardsToPlayerPile();
     }
 
-    // If centreStack isEmpty, 1st card played must be an ace (value1)
-//    public Card FirstCardPlayedMustBeAce(Card card) {
-//        boolean cardIsAce = false;
-//        if (centreStack.getStack(1).isEmpty()) {
-//            centreStack.addCard();
-//        }
-//    }
-
-    //next card to be played to centreStack must be +1 value to the last (*kings*)
-//    public void CheckCardIsAllowedToBePlayedToCentreStack(Player player, Hand hand) {
-//        boolean playable = false;
-//        for (Card card : player.getHand()) {
-//
-//        }
-//    }
-
-    public boolean centreStackPlayCheck(Card card) {
-        if (card.getValue() == centreStack.getStack(1).size()+1) {
+//figure out way to not repeat self 4 times here
+    public boolean centreStackValidMoveCheck(int stack, Card card) {
+        if (card.getValue() == centreStack.getStack(stack).size()+1) {
             return true;
         }
         else return false;
@@ -105,5 +90,12 @@ public class Game {
 
     // for each card check if value is +1 of centrestack.size if yes play if no do nothing
 
+    public void addAllowedCardToCentreStack(int stack, Card card, Player player) {
+        if (centreStackValidMoveCheck(stack, card) == true) {
+            player.playCard(card);
+            centreStack.addCard(stack, card);
+        }
+        else return ;
+    }
 
 }
