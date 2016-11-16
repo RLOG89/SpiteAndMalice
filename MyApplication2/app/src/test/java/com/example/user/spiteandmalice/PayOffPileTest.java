@@ -23,10 +23,10 @@ public class PayOffPileTest {
         card1 = new Card(Rank.JACK, Suit.SPADES);
         card2 = new Card(Rank.FOUR, Suit.SPADES);
         card3 = new Card(Rank.TWO, Suit.CLUBS);
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
         payOffPile = new PayOffPile();
+        payOffPile.addCard(card1);
+        payOffPile.addCard(card2);
+        payOffPile.addCard(card3);
 
     }
 
@@ -34,6 +34,6 @@ public class PayOffPileTest {
     public void canRemoveTopCard() {
         assertEquals(3, payOffPile.getPayPile().size());
         Card dummyCard = payOffPile.removeCard();
-        assertEquals(Rank.TWO, dummyCard.getRank());
+        assertEquals(Rank.JACK, dummyCard.getRank());
     }
 }
