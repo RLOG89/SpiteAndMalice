@@ -40,4 +40,11 @@ public class HandTest {
         assertEquals(2, cards.getHand().size());
     }
 
+    @Test
+    public void canRemoveCard() {
+        cards.addCard(card1);
+        cards.removeCard();
+        assertEquals(0, cards.getHand().size());
+    }
+
 }
