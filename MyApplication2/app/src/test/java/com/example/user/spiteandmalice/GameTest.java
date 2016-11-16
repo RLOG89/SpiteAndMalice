@@ -112,6 +112,15 @@ public class GameTest {
     }
 
     @Test
+    public void canMoveCardFromPayOffPile() {
+        ross.getPayOffPile().removeCard();
+        ross.getPayOffPile().addCard(card1);
+        game.moveCard(card1, ross.getPayOffPile(), 1);
+        assertEquals(1, game.getCentreStack().getStack(1).size());
+        assertNotSame(card1, ross.getPayOffPile().getPayPile().get(0));
+    }
+
+    @Test
     public void cannotScoreWhileGameInProgress() throws Exception {
         assertEquals(false, game.isGameOver());
         exception.expect(Exception.class);
