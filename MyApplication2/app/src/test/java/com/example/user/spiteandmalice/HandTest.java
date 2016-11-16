@@ -43,8 +43,17 @@ public class HandTest {
     @Test
     public void canRemoveCard() {
         cards.addCard(card1);
-        cards.removeCard();
+        cards.removeCard(card1);
         assertEquals(0, cards.getHand().size());
+    }
+
+    @Test
+    public void cardAtIndexIsRemoved() {
+        cards.addCard(card1);
+        cards.addCard(card2);
+        cards.addCard(card3);
+        cards.removeCard(card1);
+        assertEquals(Rank.TEN, cards.getHand().get(0).getRank());
     }
 
 }
