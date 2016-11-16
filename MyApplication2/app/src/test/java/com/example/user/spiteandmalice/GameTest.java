@@ -65,10 +65,20 @@ public class GameTest {
     }
 
     @Test
-    public void canAddAllowedCardToCentreStack() {
+    public void canAddAllowedFromHandCardToCentreStack() {
         ross.getHand().removeCardAtIndex();
         ross.getHand().addCard(card2);
         game.addAllowedCardToCentreStack(1, card2, ross);
         assertEquals(1,game.getCentreStack().getStack(1).size() );
     }
+
+    @Test
+    public void canAddAllowedHandFromPayOffPileToCentreStack() {
+        ross.getPayOffPile().removeCard();
+        ross.getPayOffPile().addCard(card2);
+        game.addAllowedCardToCentreStack(2, card2, ross);
+        assertEquals(1, game.getCentreStack().getStack(2).size());
+    }
+
+    
 }
