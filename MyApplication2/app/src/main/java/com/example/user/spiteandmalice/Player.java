@@ -12,12 +12,16 @@ public class Player {
     private SideStack sideStack;
     private int currentPoints;
 
-    public Player(String name, Hand hand, PayOffPile payOffPile, SideStack sideStack, int currentPoints ) {
+    public Player(String name, Hand hand, PayOffPile payOffPile, SideStack sideStack, int previousPoints) {
         this.name = name;
         this.hand = hand;
         this.payOffPile = payOffPile;
         this.sideStack = sideStack;
-        this.currentPoints = 0;
+        this.currentPoints = previousPoints;
+    }
+
+    public Player(String name, Hand hand, PayOffPile payOffPile, SideStack sideStack) {
+        this(name, hand, payOffPile, sideStack, 0);
     }
 
     public String getName() {
@@ -42,6 +46,11 @@ public class Player {
 
     public int getPileSize() {
         return payOffPile.getPayPile().size();
+    }
+
+
+    public Card playCard(Card card) {
+        return hand.removeCard(card);
     }
 
 }
