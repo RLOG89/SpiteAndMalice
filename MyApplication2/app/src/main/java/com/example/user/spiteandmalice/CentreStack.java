@@ -10,37 +10,25 @@ import java.util.ArrayList;
 
 public class CentreStack {
 
-    // put these in an array later //
-    private ArrayList<Card> stack1 = new ArrayList<>(12);
-    private ArrayList<Card> stack2 = new ArrayList<>(12);
-    private ArrayList<Card> stack3 = new ArrayList<>(12);
-    private ArrayList<Card> stack4 = new ArrayList<>(12);
+    private ArrayList<ArrayList<Card>> centreStacks = new ArrayList<ArrayList<Card>>();
 
     public CentreStack() {
+        for (int i = 0; i < 4; i++) {
+            ArrayList<Card> stack = new ArrayList<>(12);
+            centreStacks.add(stack);
+        }
     }
 
     public ArrayList<Card> getStack(int centreStackNumber) {
-        if (centreStackNumber == 1){return stack1;}
-        if (centreStackNumber == 2){return stack2;}
-        if (centreStackNumber == 3){return stack3;}
-        if (centreStackNumber == 4){return stack4;}
-        // add throw exception here if any other number entered //
-        return null;
+        return centreStacks.get(centreStackNumber);
     }
 
     public void addCard(int centreStackNumber, Card card) {
-        if (centreStackNumber == 1){stack1.add(card);}
-        if (centreStackNumber == 2){stack2.add(card);}
-        if (centreStackNumber == 3){stack3.add(card);}
-        if (centreStackNumber == 4){stack4.add(card);}
-        // add throw exception here if any other number entered //
-        else;
+        centreStacks.get(centreStackNumber).add(card);
     }
 
+
     public void resetStack(int centreStackNumber) {
-        if (centreStackNumber == 1){stack1.clear();}
-        if (centreStackNumber == 2){stack2.clear();}
-        if (centreStackNumber == 3){stack3.clear();}
-        if (centreStackNumber == 4){stack4.clear();}
+        centreStacks.get(centreStackNumber).clear();
     }
 }
