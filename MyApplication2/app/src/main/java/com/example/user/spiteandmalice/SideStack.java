@@ -49,4 +49,8 @@ public class SideStack {
 //        // add throw exception here if any other number entered //
 //        else return null;
 //    }
+
+    public boolean contains(int sideStacknumber, Card card) {
+        return getStack(sideStacknumber).contains(card);
+    }
 }
