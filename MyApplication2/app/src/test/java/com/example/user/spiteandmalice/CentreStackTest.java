@@ -15,6 +15,8 @@ public class CentreStackTest {
     CentreStack centreStack;
     Card card;
     Card card2;
+    Card card3;
+    Card card4;
 
     @Before
     public void before() {
@@ -41,6 +43,27 @@ public class CentreStackTest {
         centreStack.addCard(1, card2);
         assertEquals(1, centreStack.getStack(1).size());
     }
+
+    @Test
+    public void canAddKingToCentreStack() {
+        card2 = new Card(Rank.ACE, Suit.DIAMONDS);
+        centreStack.addCard(1, card2);
+        card3 = new Card(Rank.KING, Suit.CLUBS);
+        centreStack.addCard(1, card3);
+        assertEquals(2, centreStack.getStack(1).size());
+    }
+
+    @Test
+    public void canAddCardAfterAce() {
+        card2 = new Card(Rank.ACE, Suit.DIAMONDS);
+        centreStack.addCard(1, card2);
+        card3 = new Card(Rank.KING, Suit.CLUBS);
+        centreStack.addCard(1, card3);
+        card4 = new Card(Rank.THREE, Suit.HEARTS);
+        centreStack.addCard(1, card4);
+        assertEquals(3, centreStack.getStack(1).size());
+    }
+
 
     @Test
     public void centreStackStartsEmpty() {
