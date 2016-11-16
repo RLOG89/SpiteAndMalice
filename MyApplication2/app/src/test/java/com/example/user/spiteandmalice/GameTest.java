@@ -76,22 +76,27 @@ public class GameTest {
     public void canAddValidCardFromHandToCentreStack() {
         ross.getHand().removeCardAtIndex();
         ross.getHand().addCard(card2);
-        game.moveCardFromHandToCentre(1, card2, ross);
+        game.moveCard(card2, ross.getHand(), 1);
         assertEquals(1, game.getCentreStack().getStack(1).size() );
     }
 
-    //no longer works as added in extra check//
-//    @Test
-//    public void canAddValidCardFromPayOffPileToCentreStack() {
-//        ross.getPayOffPile().removeCard();
-//        ross.getPayOffPile().addCard(card2);
-//        game.moveCardFromHandToCentre(2, card2, ross);
-//        assertEquals(1, game.getCentreStack().getStack(2).size());
-//    }
+    @Test
+    public void canAddValidCardFromPayOffPileToCentreStack() {
+        ross.getPayOffPile().removeCard();
+        ross.getPayOffPile().addCard(card2);
+        game.moveCard(card2, ross.getPayOffPile(), 2);
+        assertEquals(1, game.getCentreStack().getStack(2).size());
+    }
+
+    @Test
+    public void canAddValidCardFromSidePileToCentreStack() {
+        ross.getSideStack().addCard(3, card2);
+        game.moveCard(card2, ross.getSideStack(), 3);
+    }
 
     @Test
     public void cannotAddInvalidCardFromHandToCentreStack() {
-        game.moveCardFromHandToCentre(1, card1, ross);
+        game.moveCard(card1, ross.getHand(), 1);
         assertEquals(0, game.getCentreStack().getStack(1).size());
     }
 
