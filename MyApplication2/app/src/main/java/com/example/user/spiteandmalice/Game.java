@@ -105,13 +105,20 @@ public class Game {
     add check for if null move on so doesn't crash
      */
 
-    public void addValidCardToCentreStack(int stack, Card card, Player player) {
+    public void moveCardFromHandToCentre(int stack, Card card, Player player) {
         if (!playerHasCard(player, card)){return ;}
         if (centreStackValidMoveCheck(stack, card) == true) {
             player.playCard(card);
             centreStack.addCard(stack, card);
         }
         else return ; // throw exception //
+    }
+
+    public boolean playerHasCardInPayOffPile(Player player) {
+        if (player.getPileSize() == 0) {
+            return false;
+        }
+        return true;
     }
 
 }
