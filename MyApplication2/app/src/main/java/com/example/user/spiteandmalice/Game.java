@@ -43,6 +43,10 @@ public class Game {
         return players;
     }
 
+    public CentreStack getCentreStack() {
+        return centreStack;
+    }
+
     public boolean checkPlayerHandSizeValid(Player player) {
         boolean handFull = false;
         if (player.getHandSize() < maxNumCardsInHand) {
@@ -80,22 +84,34 @@ public class Game {
         dealCardsToPlayerPile();
     }
 
-//figure out way to not repeat self 4 times here
     public boolean centreStackValidMoveCheck(int stack, Card card) {
         if (card.getValue() == centreStack.getStack(stack).size()+1) {
             return true;
         }
         else return false;
     }
+        // loop through players hand to find card //
 
-    // for each card check if value is +1 of centrestack.size if yes play if no do nothing
+    public boolean playerHasCard(Player player, Card card) {
+        for (int i = 0; i < player.getHand().cards.size(); i++) {
+            if (player.getHand().cards.get(i).getValue() == card.getValue()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public void addAllowedCardToCentreStack(int stack, Card card, Player player) {
+    /* for each card check if value is +1 of centreStack.size if yes play if no do nothing
+    add check for if null move on so doesn't crash
+     */
+
+    public void addValidCardToCentreStack(int stack, Card card, Player player) {
+        if (!playerHasCard(player, card)){return ;}
         if (centreStackValidMoveCheck(stack, card) == true) {
             player.playCard(card);
             centreStack.addCard(stack, card);
         }
-        else return ;
+        else return ; // throw exception //
     }
 
 }
