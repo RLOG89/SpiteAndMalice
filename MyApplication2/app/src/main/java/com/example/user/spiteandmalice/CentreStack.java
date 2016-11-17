@@ -1,19 +1,13 @@
 package com.example.user.spiteandmalice;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static com.example.user.spiteandmalice.Rank.ACE;
 import static com.example.user.spiteandmalice.Rank.KING;
 
-/**
- * Created by user on 12/11/2016.
- */
-
-
 public class CentreStack {
 
-    private ArrayList<ArrayList<Card>> centreStacks = new ArrayList<ArrayList<Card>>();
+    private ArrayList<ArrayList<Card>> centreStacks = new ArrayList<>();
 
     public CentreStack() {
         for (int i = 0; i < 4; i++) {

@@ -7,10 +7,6 @@ import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * Created by user on 12/11/2016.
- */
-
 public class PlayerTest {
 
     Player player;

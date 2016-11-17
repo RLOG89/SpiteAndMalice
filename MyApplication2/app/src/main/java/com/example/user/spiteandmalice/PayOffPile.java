@@ -2,16 +2,12 @@ package com.example.user.spiteandmalice;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 12/11/2016.
- */
-
 public class PayOffPile {
 
     private ArrayList<Card> cards;
 
     public PayOffPile() {
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<>();
     }
 
     public ArrayList<Card> getPayPile() {

@@ -5,10 +5,6 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * Created by user on 14/11/2016.
- */
-
 public class SideStackTest {
 
     SideStack sideStack;

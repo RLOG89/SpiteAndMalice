@@ -5,22 +5,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotSame;
-import static junit.framework.Assert.assertNull;
-
-/**
- * Created by user on 15/11/2016.
- */
 
 public class GameTest {
 
     ArrayList<Player> players = new ArrayList<>();
-    ArrayList<Card> cards = new ArrayList<>();
     Game game;
     Player ross = new Player("Ross", new Hand(), new PayOffPile(), new SideStack());
     Player bobby = new Player("Bobby", new Hand(), new PayOffPile(), new SideStack());
@@ -89,7 +82,7 @@ public class GameTest {
     }
 
     @Test
-    public void canAddValidCardFromSidePileToCentreStack() {
+    public void canAddValidCardFromSideStackToCentreStack() {
         ross.getSideStack().addCard(3, card2);
         game.moveCard(card2, ross.getSideStack(), 3);
     }
@@ -142,7 +135,6 @@ public class GameTest {
 
     @Test
     public void correctScore1() throws Exception {
-        // Remove all PayOffPile from ross
         for (int i = 0; i < 20; i++) ross.getPayOffPile().removeCard();
         assertEquals(25, game.getScoreForPlayer(ross));
         assertEquals(0, game.getScoreForPlayer(bobby));

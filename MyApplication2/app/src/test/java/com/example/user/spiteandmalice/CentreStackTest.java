@@ -6,10 +6,6 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 
-/**
- * Created by user on 14/11/2016.
- */
-
 public class CentreStackTest {
 
     CentreStack centreStack;
@@ -27,6 +23,11 @@ public class CentreStackTest {
     @Test
     public void canGetStack() {
         assertNotNull(centreStack.getStack(1));
+    }
+
+    @Test
+    public void centreStackStartsEmpty() {
+        assertEquals(0, centreStack.getStack(1).size());
     }
 
     @Test
@@ -62,12 +63,6 @@ public class CentreStackTest {
         card4 = new Card(Rank.THREE, Suit.HEARTS);
         centreStack.addCard(1, card4);
         assertEquals(3, centreStack.getStack(1).size());
-    }
-
-
-    @Test
-    public void centreStackStartsEmpty() {
-        assertEquals(0, centreStack.getStack(1).size());
     }
 
     @Test

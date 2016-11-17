@@ -7,10 +7,6 @@ import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * Created by user on 14/11/2016.
- */
-
 public class PayOffPileTest {
 
     ArrayList<Card> cards;
@@ -19,7 +15,7 @@ public class PayOffPileTest {
 
     @Before
     public void before() {
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
         card1 = new Card(Rank.JACK, Suit.SPADES);
         card2 = new Card(Rank.FOUR, Suit.SPADES);
         card3 = new Card(Rank.TWO, Suit.CLUBS);

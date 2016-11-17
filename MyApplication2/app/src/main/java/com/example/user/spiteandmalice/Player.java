@@ -1,9 +1,5 @@
 package com.example.user.spiteandmalice;
 
-/**
- * Created by user on 12/11/2016.
- */
-
 public class Player {
 
     private String name;
@@ -50,10 +46,6 @@ public class Player {
 
     public SideStack getSideStack() {
         return sideStack;
-    }
-
-    public Card playCard(Card card) {
-        return hand.removeCard(card);
     }
 
 }
