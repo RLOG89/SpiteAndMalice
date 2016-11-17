@@ -78,4 +78,17 @@ public class CentreStackTest {
         centreStack.resetStack(3);
         assertEquals(0, centreStack.getStack(3).size());
     }
+
+    @Test
+    public void cantAddMoreThanTwelveCardsToCentreStack() {
+        for (Rank i : Rank.values()) {
+            card = new Card(i, Suit.SPADES);
+            centreStack.addCard(1, card);
+        }
+        assertEquals(0, centreStack.getStack(1).size());
+        card2 = new Card(Rank.ACE, Suit.CLUBS);
+        centreStack.addCard(1, card2);
+        assertEquals(1, centreStack.getStack(1).size());
+
+    }
 }
