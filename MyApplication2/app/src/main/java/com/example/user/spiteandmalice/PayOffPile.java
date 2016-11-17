@@ -22,7 +22,7 @@ public class PayOffPile {
         if (cards.isEmpty()) {
             return null;
         }
-        return cards.remove(cards.size() - 1);
+        return cards.remove(0);
     }
 
     public void addCard(Card card) {

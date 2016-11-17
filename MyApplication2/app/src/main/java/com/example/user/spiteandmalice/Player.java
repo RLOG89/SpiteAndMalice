@@ -48,6 +48,9 @@ public class Player {
         return payOffPile.getPayPile().size();
     }
 
+    public SideStack getSideStack() {
+        return sideStack;
+    }
 
     public Card playCard(Card card) {
         return hand.removeCard(card);

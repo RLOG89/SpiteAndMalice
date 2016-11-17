@@ -27,6 +27,7 @@ public class CentreStack {
     }
 
     public void addCard(int centreStackNumber, Card card) {
+        if (centreStacks.get(centreStackNumber).size() == 12) resetStack(centreStackNumber);
         if (getStack(centreStackNumber).size() == 0 && !card.getRank().equals(ACE)) return;
         if (card.getRank().equals(KING)) {
             centreStacks.get(centreStackNumber).add(card);
@@ -40,4 +41,5 @@ public class CentreStack {
     public void resetStack(int centreStackNumber) {
         centreStacks.get(centreStackNumber).clear();
     }
+
 }

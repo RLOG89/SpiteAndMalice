@@ -22,14 +22,6 @@ public class Hand {
         return cards;
     }
 
-    // predicate class .removeif? iterator? //
-
-//    public Card removeCard(Card card) {
-//        if (!(cards.size() == 0)) {
-//            cards.removeIf (s -> !s.contains(card));
-//        }
-//    }
-
     public Card removeCard(Card card) {
         Card returnCard = null;
 

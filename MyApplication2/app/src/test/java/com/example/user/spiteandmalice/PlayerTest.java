@@ -14,11 +14,15 @@ import static junit.framework.Assert.assertEquals;
 public class PlayerTest {
 
     Player player;
+    Card card;
+    Card card2;
     ArrayList<Card> cards = new ArrayList<>();
 
     @Before
     public void before(){
-        player = new Player("Ross", new Hand(), new PayOffPile(cards), new SideStack(), 0);
+        player = new Player("Ross", new Hand(), new PayOffPile(), new SideStack());
+        card = new Card (Rank.ACE, Suit.CLUBS);
+        card2 = new Card (Rank.ACE, Suit.SPADES);
     }
 
     @Test

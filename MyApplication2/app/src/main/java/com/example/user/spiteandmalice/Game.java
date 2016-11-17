@@ -121,15 +121,6 @@ public class Game {
         centreStack.getStack(stack).add(card);
     }
 
-    public void moveCardFromHandToCentre(int stack, Card card, Player player) {
-        if (!playerHasCard(player, card)){return ;}
-        if (centreStackValidMoveCheck(stack, card) == true) {
-            player.playCard(card);
-            centreStack.addCard(stack, card);
-        }
-        else return ; // throw exception //
-    }
-
     public boolean playerHasCardInPayOffPile(Player player) {
         if (player.getPileSize() == 0) {
             return false;
